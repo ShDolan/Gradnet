@@ -1,0 +1,257 @@
+.top .Login {
+	color: #fff !important;
+	background-color: #000000!important;
+	text-align: right! important;
+	width: 100%;
+	overflow: hidden;
+		
+}
+.ABOUT , .NEWS, .ROADMAP,.FAQ,.EXPLORE,.CONTACT,.SUPPORT{
+
+    color: #fff;
+    background-color: #000000;
+
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+	/* Centered text *//*
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.networkimage {
+    position: relative;
+    text-align: center;
+    color: white;
+}*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a, .Loginbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/*.Login .Student .Employer{
+	
+	white-space: normal;
+	
+}*/
+
+li.Login {
+    display: inline-block;
+}
+/*
+.Login {
+	float: right;
+    position: relative;
+    display: inline-block;
+}*/
+
+.dropdown {
+	display: none;
+    position: absolute;
+	color: white;
+    background-color: #DCDCDC;
+    min-width: 160px;
+	 overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	right: 0;
+    z-index: 1;
+}
+
+.Loginbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+	cursor: pointer;
+}
+.dropdown a {
+	 color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+	
+	
+} 
+.dropdown a:hover {background-color: #808080}
+
+.Login:hover .dropdown{
+    display: block;
+}
+/*
+.Loginbtn: hover, .Loginbtn: focus {
+    background-color: #2980B9;
+}
+ 
+.Loginbtn: hover, ul.dropdown {
+    display: block;
+}
+
+
+.Login:hover, .Loginbtn {
+    background-color: #000000;
+}*/
+
+
+.show {display:block;}
+
+.Advanced{
+	
+    resize: vertical;
+	
+	
+	}
+/*
+.advanced-search{display: inline-block;}
+.advanced-search search{
+	/* width: 40%;
+	 /*display: inline-block;*/
+/*}*/
+
+#sindustry,#slocation,#stype,#slevel{
+
+    min-width:50px;
+    min-height: 45px;
+    border-width: 3px;
+
+}
+.search {
+	text-align: center;
+    vertical-align: middle;
+	border: 1px solid #888;
+	
+	  background-color:#000000;
+}
+
+
+.advanced-search{
+	text-align: center;
+    vertical-align: middle;
+	color:white;
+	
+	
+	
+}
+
+#about {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+#news {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+#roadmap {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+#faq {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+#explore1 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+
+
+.Searchbar {
+  float: center;
+  width: 40%;
+  border: 3px solid #000000;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+
+.Icon{
+	float: center;
+  padding: 5px;
+  margin-top: 8px;  
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 36px;
+  border-radius: 12px;
+}
+  
+  
+	
+	
+
+/*
+.icon {
+  position: absolute;  
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  
+  6px 10px;
+  <img src="download.png" width="27" height="20">
+  
+}*/
+
+.search input::placeholder {
+	
+	 color: #999;
+     font-weight: normal;
+	font-style: italic;
+}
+
+.grid-container1 {
+    display: grid;
+
+    grid-template-areas:
+            'header header header header header header'
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+
+}
+
+
+
+
+.grid-container2 {
+    display: grid;
+    grid-template: 150px / auto auto ;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+
+}
+.grid-container1>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 30px;
+}
+.grid-container2>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 30px;
+}

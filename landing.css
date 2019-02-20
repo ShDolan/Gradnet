@@ -1,0 +1,346 @@
+/* Header */
+
+body {
+    position: relative;
+}
+#about {padding-top:50px;height:500px;margin: 0px 100px 0px 100px;color: black; background-color: #1E88E5;}
+#news {padding-top:50px;height:500px;margin: 0px 100px 0px 100px;color: black; background-color: #673ab7;}
+#roadmap {padding-top:50px;height:500px;margin: 0px 100px 0px 100px;color: black; background-color: #ff9800;}
+#faq {padding-top:50px;height:500px;margin: 0px 100px 0px 100px;color: black; background-color: #00bcd4;}
+#explore1 {padding-top:50px;height:500px;margin: 0px 100px 0px 100px;color: black; background-color: #009688;}
+#aboutDiv {background-color: #1E88E5; position: top;}
+#newsDiv {background-color: #673ab7; position: top;}
+#roadmapDiv {background-color: #ff9800; position: top;}
+#faqDiv {background-color: #00bcd4; position: top;}
+#explore1Div {background-color: #009688; position: top;}
+#jobpost{margin: 0px 100px 0px 100px;color: black; }
+#jobpostDiv{background-color: #2196F3; position: top;}
+
+
+.large-header {
+    position: relative;
+    width: 100%;
+    background: #353535;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+#large-header {
+    background-image: url('osaka.gif');
+}
+
+#roadmap {
+    background-image: url('untitled-document.png');
+    height: 800px;
+    width: 75%;
+}
+
+.main-title {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+
+.demo-1 .main-title {
+    text-transform: uppercase;
+    font-size: 4.2em;
+    letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+    font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
+}
+
+.stud{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+#student {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px;
+    width: 80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#student span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#student span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#student:hover span {
+    padding-right: 25px;
+}
+
+#student:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.empl{
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+#employer {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px;
+    width: 80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#employer span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#employer span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#employer:hover span {
+    padding-right: 20px;
+}
+
+#employer:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.expl{
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+#explore {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    padding: 2px;
+    width: 80px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#explore span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#explore span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#explore:hover span {
+    padding-right: 25px;
+}
+
+#explore:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* end of "Header" */
+
+body {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header {
+    text-align: center;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #1E88E5;
+    width: 105%;
+    width: 105vw;
+    left: 0px;
+    opacity: 0.8;
+    margin: 0px 0px 0px 0px;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#navbar a:hover {
+    background-color: #00a5ff;
+    color: black;
+}
+
+#navbar a.active {
+    background-color: #00a5ff;
+    color: white;
+}
+
+#navbar .contact{
+    float: right;
+}
+#navbar .support{
+    float: right;
+}
+
+.content {
+    padding: 1px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 105%;
+}
+
+#navbar li {
+    float: right;
+}
+
+/*.sticky + .content {
+  padding-top: 60px;
+}*/
+
+.grid-container1 {
+    display: grid;
+    grid-template-areas:
+            'header header header header header header'
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding:5px;
+
+}
+
+
+/**
+
+.grid-container2 {
+    display: grid;
+    grid-template: 150px / auto auto ;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+
+}
+.grid-container1>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 30px;
+}
+.grid-container2>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding:20px 0;
+    font-size: 30px;
+}**/
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    border-style: solid;
+}
+.jobPost{border-style: solid;}
+/**
+.jobPost span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.jobPost span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}**/
+
+.jobPost:hover span {
+    padding-right: 25px;
+}
+
+.jobPost:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+

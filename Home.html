@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<!--<script>-->
+<head>
+<title>Page Title</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="Stylesheet" href="Style.css"/>
+<link rel="Stylesheet" href="style2.css"/>
+<link rel="Stylesheet" href="style3.css"/>
+<link rel="Stylesheet" href="style4.css"/>
+<link rel="Stylesheet" href="style5.css"/>
+<link rel="Stylesheet" href="stsignup.css"/>
+<link rel="Stylesheet" href="empsignup.css"/>
+<link rel="Stylesheet" href="banner.css"/>
+<link rel="Javascript" href="banner.js"/>
+
+	<script src="Auth.js"></script>
+    <script src="SigninStudent.js"></script>
+	<script src="banner.js"></script>
+    <script src="Upload.js"></script>
+	<script src="Userauth.js"></script>
+    <script src="EmployerAuth.js"></script>
+	<script src="EmployerUpload.js"></script>
+    <script src="directory.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+	<div class ="top" id= "navbar">
+
+			<li class="ABOUT"><a href="#about">ABOUT</a></li>
+			<li class="NEWS"><a href="#news">NEWS</a></li>
+			<li class="ROADMAP"><a href="#roadmap">ROADMAP</a></li>
+			<li class="FAQ"><a href="#faq">FAQ</a></li>
+			<li class="EXPLORE"><a href="#explore1">EXPLORE</a></li>
+			<li class="CONTACT"><a >CONTACT</a></li>
+			<li class="SUPPORT"><a >SUPPORT</a></li>
+
+	<ul>
+		<li class ="Login">
+			<a  class="Loginbtn" title="accounts">Login</a>
+            <div id="myDropdown" class="dropdown">
+			
+				<a href="#" onclick="document.getElementById('01').style.display='block'" style="width:auto;" class="Studentlogin">Student</a>
+				<a href="#" onclick="document.getElementById('02').style.display='block'" class="Employerlogin">Employer</a>
+            </div>
+        </li>
+	</ul>
+
+	</div>
+	
+	
+	<div id="01" class="StudentContainer">
+	
+	<div class="StudentContainer-content">
+	<span onclick="document.getElementById('01').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<div class="imgcontainer">
+     
+      <img src="student.png" alt="Avatar" class="avatar"style="width:10%;min-height:30px;max-height:70px;">
+    </div>
+	
+	
+		<h1>Student Sign In</h1>
+		
+		
+		<div>
+		<label class="sEmail"><b>Email</b></label>
+		</div>
+		
+		<div>
+		<input type="text" class="studentEmail" id= "studentUser" placeholder="Enter Email" maxlength= "35" required>
+		</div>
+		
+		<div>
+		 <label style ="font-size: 30px"><b>Password</b></label>
+		 </div>
+		 
+		 <div>
+		<input type="password" class="studentPassword"  id= "studentUser-psw" placeholder="Enter Password" maxlength= "25"required>
+		</div>
+		
+		
+		<div>
+		 <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+		</div>
+		
+		<div>
+		<button class="sCancel" onclick=" document.getElementById('01').style.display='none';" > Cancel</button>
+		<button class="sEnter" onclick=" Signinstudent();"> Enter</button>
+		</div>
+		
+		  <p><a class="CreateStudent" href="#" onclick="document.getElementById('04').style.display='block'; document.getElementById('01').style.display='none';" >Create New Student Account?</a>.</p>
+		
+		
+		</div>
+	</div>
+	
+	
+	<!--
+	<div id="03"class="student-sign-up">
+       <div class="student-sign-up-content" >
+       <span onclick="document.getElementById('03').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<h1>Student Sign Up</h1>
+	<h2>Please fill in the details below</h2>
+	 <hr>
+	<div>style="color:dodgerblue"
+	 <label for="email"><b>Email</b></label>
+	 </div>
+	 <div>
+     <input type="text" id="email" placeholder="Enter Email" class="st-email"  maxlength="25" required>
+	  </div>
+	  
+	   <div>
+	  <label for="psw"><b>Password</b></label>
+	  </div>
+	  <div>
+      <input type="password" id="psw" placeholder="Enter Password" class="st-psw" maxlength="25" required>
+		 </div>
+		 
+		 <div> 
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+	  </div>
+	  <div>
+      <input type="password" id="psw-repeat" placeholder="Repeat Password" class="psw-repeat"  maxlength="25" required>
+		 </div>
+	  
+	   <div>
+	  <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+		 </div>
+	  
+	    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+		
+		<div class= "Nav">
+		<button class= "Cancel" onclick="document.getElementById('03').style.display='none'" type="button"  >Cancel </button>
+			
+		<button class= "Next"   onclick= "Display4();mySubmit();"  type="button" >Next </button>
+		
+		
+		  </div>
+		</div>
+	</div>--->
+	
+	
+	<div class ="stsignup" id="04">
+
+		<div class ="stsignup-content">
+
+			<span onclick="document.getElementById('04').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+			<h1>Student Sign Up</h1>
+			<h2>Please fill in the details below</h2>
+			<hr>
+			<div>
+				<label for="email"><b>Email</b></label>
+			</div>
+			<div>
+				<input type="text" id="email" placeholder="Enter Email" class="st-email"  maxlength="35" required>
+			</div>
+
+			<div>
+				<label for="psw"><b>Password</b></label>
+			</div>
+			<div>
+				<input type="password" id="psw" placeholder="Enter Password" class="st-psw" maxlength="25" required>
+			</div>
+
+			<div>
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+			</div>
+			<div>
+				<input type="password" id="psw-repeat" placeholder="Repeat Password" class="psw-repeat"  maxlength="25" required>
+			</div>
+
+			<h1>Personal Information</h1>
+		<hr>
+            <h1>Name</h1>
+            <div class= "Student-name">
+                <input type="text" id="name" placeholder="Name"  maxlength="35" required>
+            </div>
+
+
+
+
+		<div class= "Education">
+		
+		<div>
+		 <label for= "college"><b>College/University</b></label>
+		</div>
+			
+		<div class="st-college">
+			<input type="text" placeholder="College/University" id="College/University" class="College/University"  maxlength="25" required>
+		</div>
+		
+		</div>
+		
+		<div class="Level">
+				<div>
+				<label for= "Level"><b>Level</b></label>
+				</div>
+				<select id="Level">
+						<option value="--">--</option>
+						<option value="Level 7">Level 7</option>
+						<option value="Undergraduate in progress">Undergraduate Level 8 in progress</option>
+						<option value="Undergraduate complete">UndergraduateLevel 8 complete</option>
+						<option value="Higher Diploma">Higher Diploma</option>
+						<option value="Masters">Masters</option>
+						<option value="PhD">PhD</option>
+						
+					</select>
+		</div>
+		
+		<div class="Degree">
+					<div>
+					<label for= "Degree"><b>Degree</b></label>
+					</div>
+					<select id="Degree">
+							<option value="--">--</option>
+							<option value="Accounting">Accounting</option>
+					<option value="Anthropology">Anthropology</option>
+					<option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+					<option value="Agriculture">Agricultural Science</option>
+					<option value="Architectural Science">Architecture</option>
+					<option value="Biology">Biology</option>
+					<option value="Biotechnology">Biotechnology</option>
+					<option value="Chemistry">Chemistry</option>
+					<option value="Communications">Communications</option>
+					<option value="Computer Science">Computer Science</option>
+					<option value="Construction">Construction</option>					
+					<option value="Customer Service Management">Customer Service Management</option>
+					<option value="Education">Education</option>
+					<option value="Engineering">Engineering</option>
+					<option value="Environmental Studies">Environmental Studies</option>
+					<option value="English">English</option>
+					<option value="Finance">Finance</option>
+					<option value="French">French</option>
+					<option value="Healthcare">Healthcare</option>
+					<option value="Hospitality">Hospitality</option>
+					<option value="Human Resoure Management">Human Resoure Management</option>
+					<option value="German">German</option>	
+					<option value="IT">IT</option>
+					<option value="Legal">Legal</option>
+					<option value="Linguistics">Linguistics</option>
+					<option value="Manufacturing Engineering ">Manufacture Engineering</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Operations/Logistics">Operations/Logistics</option>
+					<option value="Physics">Physics</option>
+					<option value="Physics and Mathemathics">Physics and Mathemathics</option>
+					<option value="Project Management">Project Management </option>
+					<option value="Science">Science</option>
+					<option value="Sociology">Sociology</option>
+					<option value="Social Work">Social Work</option>
+					<option value="Sports Science">Sports Science</option>
+					<option value="Spanish">Spanish</option>
+					<option value="Web Development">Web Development</option>
+					</select>
+		</div>
+		
+		<div class="PostDegree">
+					<div>
+					<label for= "PostDegree" ><b>Postgraduate Degree <span class="thin">(if applies)</span></b></label>
+					</div>
+					<select id="PostDegree">
+							<option value="--">--</option>
+							<option value="Accounting">Accounting</option>
+					<option value="Anthropology">Anthropology</option>
+					<option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+					<option value="Agriculture">Agricultural Science</option>
+					<option value="Architectural Science">Architecture</option>
+					<option value="Biology">Biology</option>
+					<option value="Biotechnology">Biotechnology</option>
+					<option value="Chemistry">Chemistry</option>
+					<option value="Communications">Communications</option>
+					<option value="Computer Science">Computer Science</option>
+					<option value="Construction">Construction</option>					
+					<option value="Customer Service Management">Customer Service Management</option>
+					<option value="Education">Education</option>
+					<option value="Engineering">Engineering</option>
+					<option value="Environmental Studies">Environmental Studies</option>
+					<option value="English">English</option>
+					<option value="Finance">Finance</option>
+					<option value="French">French</option>
+					<option value="Healthcare">Healthcare</option>
+					<option value="Hospitality">Hospitality</option>
+					<option value="Human Resoure Management">Human Resoure Management</option>
+					<option value="German">German</option>	
+					<option value="IT">IT</option>
+					<option value="Legal">Legal</option>
+					<option value="Linguistics">Linguistics</option>
+					<option value="Manufacturing Engineering ">Manufacture Engineering</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Operations/Logistics">Operations/Logistics</option>
+					<option value="Physics">Physics</option>
+					<option value="Physics and Mathemathics">Physics and Mathemathics</option>
+					<option value="Project Management">Project Management </option>
+					<option value="Science">Science</option>
+					<option value="Sociology">Sociology</option>
+					<option value="Social Work">Social Work</option>
+					<option value="Sports Science">Sports Science</option>
+					<option value="Spanish">Spanish</option>
+					<option value="Web Development">Web Development</option>
+					</select>
+		</div>
+		
+		
+		
+		<div >
+		
+		<div>
+		 <label for= "Hobbies"><b>Hobbies<b></label>
+		</div>
+			
+		<div class= "Hobbies" >
+			<input type="text" id="Hobbies" placeholder="Hobbies" class="HobbiesInput"  maxlength="25" required>
+		</div>
+		
+		</div>
+		
+		
+		<div class="WorkExperience">
+		<div>
+			 <label for= "Work "><b>Work Experience<b></label>
+		</div>
+        <textarea  name="subject" id="WorkExperience" placeholder="Please write about any previous work or jobs.." style="height:200px"></textarea>
+		</div>
+		
+		
+		<div class="Blurb">
+		<div>
+			 <label for= "Blurb "><b>Personal Details</b></label>
+		</div>
+        <textarea name="subject" id="Blurb" placeholder="Write a bit about yourself......" style="height:200px"></textarea>
+		</div>
+		
+		
+		<label for="Document"><b>Extra Document</b></label>
+		<form class="St-document"action="/action_page.php">
+			<input type="file" name="doc" accept="pdf/*">
+			
+			</form>
+		<hr>
+
+			<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+		
+		
+		 <div class="row">
+        <button class="st-sub-button" id="st-subbtn" onclick= "mySubmit();" type="button">Submit</button>
+        </div>
+		
+		
+		
+		
+		
+	 </div>	
+		
+    </div>
+		
+
+	
+	<div id="02" class="EmployerContainer">
+	<div class="EmployerContainer-content">
+	<span onclick="document.getElementById('02').style.display='none'" class="eclose" title="Close Modal">&times;</span>
+	<div class="imgcontainer">
+     
+      <img src="employer.png" alt="Avatar" class="avatar"style="width:10%;min-height:30px;max-height:70px;">
+    </div>
+	
+	
+		<h1>Employer Sign In</h1>
+		
+		
+		<div>
+		<label class="eEmail"><b>Email</b></label>
+		</div>
+		
+		<div>
+		<input type="text" class="employerEmail" id= "employerUser" placeholder="Enter Email" maxlength= "25" required>
+		</div>
+		
+		<div>
+		 <label class="epsw"><b>Password</b></label>
+		 </div>
+		 
+		 <div>
+		<input type="password" class="employerPassword"  id= "empUser-psw-rp" placeholder="Insert Password" maxlength= "25"required>
+		</div>
+
+		
+		<div>
+		 <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+		</div>
+		
+		<div>
+		<button class="eCancel"onclick="document.getElementById('02').style.display='none'"> Cancel</button>
+		<button class="eEnter" onclick="EnterEmp(); "> Enter</button>
+		</div>
+		
+		  <p><a class="CreateEmployer" href="#" onclick=" document.getElementById('06').style.display='block';document.getElementById('02').style.display='none';" style="color:dodgerblue">Create New Employer Account?</a>.</p>
+		
+		</div>
+		
+	</div>
+	
+	<!--
+	<div id="05"class="employer-sign-up">
+<div class="employer-sign-up-content" >
+<span onclick="document.getElementById('05').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<h1>Employer Sign Up</h1>
+	<h2>Please fill in the details below</h2>
+	 <hr>
+	<div>
+	 <label for="email"><b>Email</b></label>
+	 </div>
+	 <div>
+     <input type="text" placeholder="Enter Email" class="employer-email" id="employer-email" maxlength="25" required>
+	  </div>
+	  
+	   <div>
+	  <label for="psw"><b>Password</b></label>
+	  </div>
+	  <div>
+      <input type="password" placeholder="Enter Password" class="employer-psw" maxlength="25" required>
+		 </div>
+		 
+		 <div> 
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+	  </div>
+	  <div>
+      <input type="password" placeholder="Repeat Password" class="employer-psw-repeat"  maxlength="25" required>
+		 </div>
+	  
+	   <div>
+	  <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>
+		 </div>
+	  
+	    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+		
+		<div class= "Nav">
+		<button class= "employer-Cancel" onclick="document.getElementById('05').style.display='none'"type="button"  >Cancel </button>
+			
+		<button class= "employer-Next" onclick="Display6() " type="button" >Next </button>
+		
+		
+		  </div>
+		</div>
+	</div>-->
+	
+	<div class ="empsignup" id="06">
+
+<div class ="empsignup-content">
+
+<span onclick="document.getElementById('06').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+    <h1>Employer Sign Up</h1>
+    <h2>Please fill in the details below</h2>
+    <hr>
+    <div>
+        <label for="email"><b>Email</b></label>
+    </div>
+    <div>
+        <input type="text" placeholder="Enter Email" class="employer-email" id="employer-email" maxlength="35" required>
+    </div>
+
+    <div>
+        <label for="psw"><b>Password</b></label>
+    </div>
+    <div>
+        <input type="password" placeholder="Enter Password" class="employer-psw" id="employer-psw"maxlength="25" required>
+    </div>
+
+    <div>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+    </div>
+    <div>
+        <input type="password" placeholder="Repeat Password" class="employer-psw-repeat" id="employer-psw-repeat" maxlength="25" required>
+    </div>
+
+		<h1>Company Information</h1>
+		<hr>
+	<h2>Company Name </h2>
+	<hr>
+	<input type="text" placeholder="Company Name" class="Company Name" id="CompanyName"  maxlength="30" required>
+
+		<div class= "Address">
+		
+		<div>
+		 <label for= "Address"><b>Company Address</b></label>
+		</div>
+			
+		<div>
+			<input type="text" placeholder="Address first line" class="Adress1"  id="Address1"maxlength="30" required>
+		</div>
+		
+		<div>
+			<input type="text" placeholder="Address Second line" class="Adress2" id="Address2" maxlength="30" required>
+		</div>
+		
+		<div>
+			<input type="text" placeholder="Address third line" class="Adress3" id="Address3" maxlength="30" >
+		</div>
+		
+		
+		<div>
+			<input type="text" placeholder="Country" class="Country"  id= "country" maxlength="30" required>
+		</div>
+		
+		
+		</div>
+		
+		
+		
+		<div class="Industry">
+					<div>
+					<label for= "Industry"><b>Industry</b></label>
+					</div>
+					<select id="Industry">
+							<option value="--">--</option>
+							<option value="Accounting">Accounting</option>
+					<option value="Administration">Administration</option>
+					<option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+					<option value="Agriculture">Agriculture</option>
+					<option value="Architectural">Architectural</option>
+					<option value="Banking">Banking</option>
+					<option value="Charity">Charity</option>
+					<option value="Communications">Communications</option>
+					<option value="Construction">Construction</option>
+					<option value="Creative">Creative</option>
+					<option value="Cruise Ship">Cruise Ship</option>
+					<option value="Customer Service">Customer Service</option>
+					<option value="Editorial">Editorial</option>
+					<option value="Education">Education</option>
+					<option value="Engineering">Engineering</option>
+					<option value="Environmental">Environmental</option>
+					<option value="Finance">Finance</option>
+					<option value="Healthcare">Healthcare</option>
+					<option value="Hospitality">Hospitality</option>
+					<option value="Human Resoure">Human Resoure</option>
+					<option value="Insurance">Insurance</option>					
+					<option value="IT">IT</option>
+					<option value="Legal">Legal</option>
+					<option value="Leisure">Leisure</option>
+					<option value="Maintenance">Maintenance</option>
+					<option value="Management/Executive">Management/Executive</option>
+					<option value="Manufacturing">Manufacturing</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Mechanical">Mechanical</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Operations/Logistics">Operations/Logistics</option>
+					<option value="Project Management">Project Management </option>
+					<option value="Public Sector">Public Sector</option>
+					<option value="Retail">Retail</option>
+					<option value="Sales">Sales</option>
+					<option value="Security">Security</option>
+					<option value="Social Work">Social Work</option>
+					<option value="Sports">Sports</option>
+					<option value="Support">Support</option>
+					<option value="Training">Training</option>
+					<option value="Transport">Transport</option>
+					<option value="Web Development">Web Development</option>
+					</select>
+		</div>
+		
+		
+		
+		
+		
+			<div class="companyBlurb">
+		<div>
+			 <label for= 'comapanyBlurb'><b>Comapny Details<b></label>
+		</div>
+        <textarea id="subject1" name="subject" placeholder="Write a bit about your company......" style="height:200px"></textarea>
+		</div>
+		
+		
+		
+		<div class="Ideal Candidate">
+		<div>
+			 <label for= "Ideal Candidate"><b>Ideal Candidate</b></label>
+		</div>
+        <textarea id="subject2" name="subject" placeholder="Please write about qualities you want in a candidate.." style="height:200px"></textarea>
+		</div>
+		
+		<label for="Pictureupload"><b>Profile picture Upload</b></label>
+		<form class="em-profile"action="/action_page.php">
+			<input type="file" name="pic" accept="image/*">
+			
+			</form>
+		<hr>
+		 <div class="row">
+        <button class="em-sub-button" onclick="EmployerSubmit()"type="button">Submit</button>
+        </div>
+		
+		
+		
+		
+		
+	</div>	
+		
+</div>
+	
+	<div id="large-header" class="large-header">
+
+  <canvas id="demo-canvas" style="width:100%;min-height:350px;max-height:300px;"></canvas>
+    <h1 class="main-title">Grad <span class="thin">Net</span></h1>
+</div>
+	
+	
+	
+	<div class="search">
+	    <form >
+		<input class="Searchbar" type="text" id= "searchBar" placeholder="Company, Industry, Level, Location, Job Type" value="" maxlength= "25" autocomplete="off" onmousedown="" onblur=""/>
+		<button class="Icon"type="image"  alt="search" width="10" height="10"><img src="download.png" width="30" height="30" ></button>
+	    </form>
+			<form  class="advanced-search" >
+			<!--<div class="Advanced">
+
+			       <!-- <label style="color:white">Location</label>-->
+					<select id="slocation">
+						<option value="all">All Locations</option>
+						<option value="Antrim">Antrim</option>
+						<option value="Armagh">Armagh</option>
+						<option value="Carlow">Carlow</option>
+						<option value="Cavan">Cavan</option>
+						<option value="Clare">Clare</option>
+						<option value="Cork">Cork</option>
+						<option value="Derry">Derry</option>
+						<option value="Donegal">Donegal</option>
+						<option value="Down">Down</option>
+						<option value="Dublin">Dublin</option>
+						<option value="Fermanagh">Fermanagh</option>
+						<option value="Galway">Galway</option>
+						<option value="Kerry">Kerry</option>
+						<option value="Kildare">Kildare</option>
+						<option value="Kilkenny">Kilkenny</option>
+						<option value="Laois">Laois</option>
+						<option value="Leitrim">Leitrim</option>
+						<option value="Limerick">Limerick</option>
+						<option value="Longford">Longford</option>
+						<option value="Louth">Louth</option>
+						<option value="Mayo">Mayo</option>
+						<option value="Meath">Meath</option>
+						<option value="Monaghan">Monaghan</option>
+						<option value="Offaly">Offaly</option>
+						<option value="Roscommon">Roscommon</option>
+						<option value="Sligo">Sligo</option>
+						<option value="Tipperary">Tipperary</option>
+						<option value="Tyrone">Tyrone</option>
+						<option value="Waterford">Waterford</option>
+						<option value="Westmeath">Westmeath</option>
+						<option value="Wexford">Wexford</option>
+						<option value="Wicklow">Wicklow</option>
+						<option value="Britan">Britan</option>
+						<option value="Europe">Europe</option>
+						<option value="USA">USA</option>
+						<option value="Canada">Canada</option>
+						<option value="Australia">Australia</option>
+					</select>
+					<!--<label style="color:white">Industry</label>-->
+					<select id="sindustry">
+					<option value="All">All Industries</option>
+					<option value="Accounting">Accounting</option>
+					<option value="Administration">Administration</option>
+					<option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+					<option value="Agriculture">Agriculture</option>
+					<option value="Architectural">Architectural</option>
+					<option value="Banking">Banking</option>
+					<option value="Charity">Charity</option>
+					<option value="Communications">Communications</option>
+					<option value="Construction">Construction</option>
+					<option value="Creative">Creative</option>
+					<option value="Cruise Ship">Cruise Ship</option>
+					<option value="Customer Service">Customer Service</option>
+					<option value="Editorial">Editorial</option>
+					<option value="Education">Education</option>
+					<option value="Engineering">Engineering</option>
+					<option value="Environmental">Environmental</option>
+					<option value="Finance">Finance</option>
+					<option value="Healthcare">Healthcare</option>
+					<option value="Hospitality">Hospitality</option>
+					<option value="Human Resoure">Human Resoure</option>
+					<option value="Insurance">Insurance</option>					
+					<option value="IT">IT</option>
+					<option value="Legal">Legal</option>
+					<option value="Leisure">Leisure</option>
+					<option value="Maintenance">Maintenance</option>
+					<option value="Management/Executive">Management/Executive</option>
+					<option value="Manufacturing">Manufacturing</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Mechanical">Mechanical</option>
+					<option value="Mechanical Engineering">Mechanical Engineering</option>
+					<option value="Operations/Logistics">Operations/Logistics</option>
+					<option value="Project Management">Project Management </option>
+					<option value="Public Sector">Public Sector</option>
+					<option value="Retail">Retail</option>
+					<option value="Sales">Sales</option>
+					<option value="Security">Security</option>
+					<option value="Social Work">Social Work</option>
+					<option value="Sports">Sports</option>
+					<option value="Support">Support</option>
+					<option value="Training">Training</option>
+					<option value="Transport">Transport</option>
+					<option value="Web Development">Web Development</option>
+					</select>
+				<!--	<label style="color:white">Level</label>-->
+					<select id="slevel">
+						<option value="All">All Levels</option>
+						<option value="Level 7">Level 7</option>
+						<option value="Undergraduate in progress">Undergraduate in progress</option>
+						<option value="Undergraduate complete">Undergraduate complete</option>
+						<option value="Higher Diploma">Higher Diploma</option>
+						<option value="Masters">Masters</option>
+						<option value="PhD">PhD</option>
+					</select>
+					<!--<label style="color:white">Job Type</label>-->
+					<select id="stype">
+						<option value="All">All Job Types</option>
+						<option value="Internship">Internship</option>
+						<option value="PartTime">Part Time</option>
+						<option value="FullTime">Full Time</option>
+						<option value="Temporary">Temporary</option>
+					</select>
+
+
+			</form>
+	</div>
+<div id="about" >
+	<h3 >About</h3>
+	<p>
+		GradNet is a new generation interface designed to connect graduates with employers in a seemless environment. It provides state of the art application control and analytics to employers and recruiters while allowing candidates to display their best qualities to get the best chance of finding employment.
+	</p><p>
+	GradNet was founded in 2018 by five computer science postgraduates who found traditional jobhunting sites to be outdated and unaproachable. Most job posts alianated graduates by demanding 'experience', something that seemed to be overlooked as companies eventually filled such positions with graduates. GradNet's vision is to create an environment where undergrades are welcomed, advertised to, and recruited.
+</p><p>
+	Thus, the GradNet student profile is very academia centric, allowing the recruiters to better distinguish good talent.
+</p>
+</div>
+
+<div id="news" >
+	<h3>News</h3>
+	<h5>GradNet launches new site</h5>
+	<p>
+		GradNet launches new website. Tons of traffic. $$$. make it rain on them hoes!! #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ dolla bills yo.
+	</p>
+	<h5>GradNet launches new Roadmap for 2018</h5>
+	<p>
+		GradNet launches new roadmap for 2018. Lots of important updates in the works such as getting tons of traffic, loads of money $$$ and making it rain on them hoes!! #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ dolla bills yo.
+	</p>
+</div>
+
+<div id="roadmap" >
+	<h3>Roadmap</h3>
+	<p>
+		site launch[complete]------>get tons of traffic----->get$$$------>
+	</p>
+	<p>STEP 1 - S</p>
+	<p>STEP 2 - ?</p>
+	<p>STEP 3 - PROFIT!</p>
+	<p>STEP 4 - !</p>
+	</p>
+</div>
+
+<div id="faq" >
+	<h3>F.A.Q.</h3>
+	<h5>When is the awesome new GradNet site going to be launched?</h5>
+	<p>2018.</p>
+	<h5>How will it get tons of traffic?</h5>
+	<p>by being awesome.</p>
+	<h5>What will you do with all them dolla bills?</h5>
+	<p></p>
+	<h5>...I can't get into my account...</h5>
+	<p>This is because you suck sir.</p>
+</div>
+
+<div id="explore1" >
+	<h3>Explore</h3>
+	<p>Job Post #1 - </p>
+	<p>Job Post #2 - Full stack developer</p>
+	<p>Job Post #3 - muffin maker</p>
+	<p>Job Post #4 -</p>
+	<p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+	<p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+	<p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+	<p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+
+<div id="jobpost">
+
+</div>
+
+
+
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
+
+
+    function showContent() {
+
+		console.log("Show Content");
+        var jobPost = document.getElementById("jobpost");
+
+
+        var query = firebase.database().ref("Jobs").orderByKey();
+        query.on("value", function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var temp, item1, a, i;
+              /**  temp = document.getElementsByTagName("display-job")[0];     **/
+
+                var key = childSnapshot.key;
+                // childData will be the actual contents of the child
+                var childData = childSnapshot.val();
+                console.log("***************",childData);
+               /**item1 = temp.content.querySelector("#item1");
+                console.log(item1);**/
+
+				console.log("JOBPOPOSOFJ : " + jobPost);
+
+				var gridcont1 = document.createElement("div");
+				var gridcont2 = document.createElement("div");
+
+				gridcont1.classList.add("grid-container1");
+                gridcont2.classList.add("grid-container2");
+
+                var item1 = document.createElement("div");
+                item1.classList.add("item1");
+                item1.innerHTML = childData.jobtitle;
+
+                var item2 = document.createElement("div");
+                item2.classList.add("item2");
+                item2.innerHTML = "Company name: " + childData.compname;
+
+                gridcont1.appendChild(item1);
+                gridcont1.appendChild(item2);
+
+                var item3 = document.createElement("div");
+                item3.classList.add("item3");
+                item3.innerHTML = "Job Description:" + childData.jobdes;
+
+                var item4 = document.createElement("div");
+                item4.classList.add("item4");
+                item4.innerHTML = "City/County:" + childData.City;
+
+                var item5 = document.createElement("div");
+                item5.classList.add("item5");
+                item5.innerHTML = "Job Type:" + childData.jobtype;
+
+                var item6 = document.createElement("div");
+                item6.classList.add("item6");
+                item6.innerHTML = "Salary:" + childData.salary
+
+                var item7 = document.createElement("div");
+                item7.classList.add("item7");
+                item7.innerHTML = "Experience:" + childData.experience;
+
+                var item8 = document.createElement("div");
+                item8.classList.add("item8");
+                item8.innerHTML = "Licence:" + childData.lic;
+
+                var item9 = document.createElement("div");
+                item9.classList.add("item1");
+                item9.innerHTML = "Education Level:" + childData.edulevel;
+
+                var item10 = document.createElement("div");
+                item10.classList.add("item10");
+                item10.innerHTML = "Additional Languages:" + childData.Languages;
+
+                gridcont2.appendChild(item3);
+                gridcont2.appendChild(item4);
+                gridcont2.appendChild(item5);
+                gridcont2.appendChild(item6);
+                gridcont2.appendChild(item7);
+                gridcont2.appendChild(item8);
+                gridcont2.appendChild(item9);
+                gridcont2.appendChild(item10);
+
+                jobPost.appendChild(gridcont1);
+                jobPost.appendChild(gridcont2);
+
+
+            });
+        }, function(error) {
+            console.error(error);
+        });
+
+
+
+
+
+
+    }
+
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD4J4mmvmV5L34gmX9BL09ZMRHKD25D13w",
+        authDomain: "project2-84c6e.firebaseapp.com",
+        databaseURL: "https://project2-84c6e.firebaseio.com",
+        projectId: "project2-84c6e",
+        storageBucket: "project2-84c6e.appspot.com",
+        messagingSenderId: "697844001483"
+    };
+    firebase.initializeApp(config);
+</script>
+
+
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+
+<script>
+	showContent();
+</script>
+</body>
+</html>

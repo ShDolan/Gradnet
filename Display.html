@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<style lang="en">
+
+ /*  .item1{ grid-area: header; }
+.item2 { grid-area: header; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: main; }
+.item6 { grid-area: right; }
+.item7 { grid-area: main; }
+.item8 { grid-area: right; }
+.item9 { grid-area: main; }
+.item10 { grid-area: right; }**/
+
+                                                  /*  grid-template-areas:
+                                                             'header header header header header header'
+                                                             'menu main main main right right'
+                                                             'menu footer footer footer footer footer';*/
+
+
+ /*grid-template-rows: auto;*/
+
+ .grid-container1 {
+     display: grid;
+
+     grid-template-areas:
+             'header header header header header header'
+     grid-gap: 10px;
+     background-color: #2196F3;
+     padding: 10px;
+
+ }
+
+
+
+
+ .grid-container2 {
+     display: grid;
+     grid-template: 150px / auto auto ;
+     grid-gap: 10px;
+     background-color: #2196F3;
+     padding: 10px;
+
+ }
+ .grid-container1>div {
+     background-color: rgba(255, 255, 255, 0.8);
+     text-align: center;
+     padding:20px 0;
+     font-size: 30px;
+ }
+ .grid-container2>div {
+     background-color: rgba(255, 255, 255, 0.8);
+     text-align: center;
+     padding:20px 0;
+     font-size: 30px;
+ }
+</style>
+
+
+<!--<template id="display-job">-->
+<div>
+<div class="grid-container1">
+    <div id="item1" class="item1"></div>
+    <div id="item2" class="item2">Company Name:</div>
+
+</div>
+
+<div class="grid-container2">
+
+    <div id="item3" class="item3">Job Description:</div>
+    <div id="item4" class="item4">City/County:</div>
+    <div id="item5" class="item5">Job Type:</div>
+    <div id="item6"  class="item6">Salary:</div>
+    <div id="item7" class="item7">Experience:</div>
+    <div id="item8"class="item8">Licence:</div>
+    <div id="item9"class="item9">Education Level:</div>
+    <div id="item10"class="item10">Additional Language:</div>
+</div>
+
+
+</div>
+</template>
+
+
+</body>
+
+<script>
+/*
+var item1= document.getElementById("item1").value;
+var item2= document.getElementById("item2").value;
+var item3= document.getElementById("item3").value;
+var item4= document.getElementById("item4").value;
+var item5= document.getElementById("item5").value;
+var item6= document.getElementById("item6").value;
+var item7= document.getElementById("item7").value;
+var item8= document.getElementById("item8").value;
+var item9= document.getElementById("item9").value;
+var item10= document.getElementById("item10").value;
+*/
+
+
+var userRef = firebase.database().ref().child("Jobs");
+var useridRef = userRef.child(userid);
+var nameRef = useridRef.child("compname");
+var jobtit= useridRef.child("jobtitle");
+var jobdes = useridRef.child("jobdes");
+var city = useridRef.child("city");
+var jobtype = useridRef.child("jobtype");
+var edulevel = useridRef.child("edulevel");
+var exp = useridRef.child("experience");
+var lang = useridRef.child("languages");
+var sal= useridRef.child("salary");
+var lic= useridRef.child("lic");
+
+
+    document.getElementById("item1").innerHTML= jobtit;
+    document.getElementById("item2").innerHTML= "Company Name:"+ nameRef;
+    document.getElementById("item3").innerHTML= "Job Description:"+ jobdes;
+    document.getElementById("item4").innerHTML= "City/County:"+ city;
+    document.getElementById("item5").innerHTML= "Job Type:"+ jobtype;
+    document.getElementById("item6").innerHTML= "Salary:"+ sal;
+    document.getElementById("item7").innerHTML= "Experience:"+ exp;
+    document.getElementById("item8").innerHTML= "Licence:"+ lic;
+    document.getElementById("item9").innerHTML= "Education Level:"+ edulevel;
+    document.getElementById("item10").innerHTML= "Additional Languages:"+ lang;
+
+    function getData(dataType, dataID) {
+        var data = {};
+        var dataRef = firebase.database().ref("/" + dataType + "/" + dataID);
+        dataRef.on('value', function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                data[childSnapshot.key] = childSnapshot.val();
+                console.log(data);
+            });
+        });
+    }
+</script>
+
+
+</html>

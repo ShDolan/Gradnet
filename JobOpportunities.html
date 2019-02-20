@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> -->
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="Student.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="header">
+    <h2>GradNet</h2>
+  </div>
+</head>
+<body>
+
+  <ul class="topnav">
+    <li><a href="Studentpage.html">My Profile</a></li>
+    <li><a href="Application.html">My Applications</a></li>
+    <li><a class="active" href="#">Job Opportunities</a></li>
+    <li class="dropdown">
+      <a class="dropbtn">Employers</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div
+    </li>
+    <li  style="float:right">
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+      </div>
+    </li>
+    <button style = "visibility:visible" id = "logoutbtn" onclick="signout()" class = "logout">Log Out</button>
+  </ul>
+
+
+  <!--JOBS-->
+
+  <div id="row" class="row">
+     <!-- <div id="card" class="card">
+        <h5 id="jobData0">Company Name</h5>
+        <h5 id="jobData1"> Job Title</h5>
+        <div id="fakeimg" class="fakeimg"><p>Image</p></div>
+        <p id="tester"></p>
+        <table id="table1">
+              <tr><div id="jobData"></div></tr>
+            <tr>
+              <td><div id="nameTitle">Description:</div></td>
+              <td><div id="jobData2"></div></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><div id="jobData3"></div></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><div id="jobData5"></div></td>
+            </tr>
+        </table>
+        <button>Apply Now</button>
+    </div>-->
+</div>
+
+
+
+
+
+<div id="AddNew"></div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>-->
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyD4J4mmvmV5L34gmX9BL09ZMRHKD25D13w",
+          authDomain: "project2-84c6e.firebaseapp.com",
+          databaseURL: "https://project2-84c6e.firebaseio.com",
+          projectId: "project2-84c6e",
+          storageBucket: "project2-84c6e.appspot.com",
+          messagingSenderId: "697844001483"
+      };
+      firebase.initializeApp(config);
+  </script>
+
+  <!--<script src="JobOpportunities.js"></script>-->
+
+  <script>
+
+
+
+      function showContent2() {
+
+        /**   firebase.auth().onAuthStateChanged(function (user){
+
+              console.log(user);
+              // user1=user;
+              if (user) {
+                  //User is signed in.
+                  console.log(user);
+
+              } else {
+                  console.log("SOMETHING'S WRONG!!!!!!!!!!!!");
+              }
+
+          });**/
+
+
+
+            var      UID= localStorage.getItem("USERID");
+          console.log(UID);
+
+          var row = document.getElementById("row");
+          var num=1;
+
+          var query = firebase.database().ref("Jobs").orderByKey();
+          query.on("value", function(snapshot) {
+              snapshot.forEach(function(childSnapshot) {
+                  var temp, item1, a, i;
+                  /**  temp = document.getElementsByTagName("display-job")[0]; **/
+
+                  var key = childSnapshot.key;
+                  // childData will be the actual contents of the child
+                  var childData = childSnapshot.val();
+                  console.log("***************",childData);
+                  /**item1 = temp.content.querySelector("#item1");
+                   console.log(item1);**/
+
+                  var jobid= key;
+                  console.log(jobid);
+
+                  var card = document.createElement("div");
+
+                  card.classList.add("card");
+
+                  var MyID=document.createElement("div");
+                  MyID.classList.add("MyID");
+                  MyID.innerHTML=num;
+
+
+                  var JobData0 = document.createElement("h5");
+                  JobData0.classList.add("JobData0");
+                  JobData0.innerHTML = "Company Name:"+childData.compname;
+
+                  var JobData1= document.createElement("h5");
+                  JobData1.classList.add("jobData1");
+                  JobData1.innerHTML = "Job Title: " + childData.jobtitle;
+
+                  card.appendChild(MyID) ;
+                  card.appendChild(JobData0);
+                  card.appendChild(JobData1);
+
+                  var fakeimg=document.createElement("p");
+                  fakeimg.classList.add("fakeimg");
+
+
+                  var nameTitle = document.createElement("div");
+                  nameTitle.classList.add("nameTitle");
+                  nameTitle.innerHTML = "Job Description:" + childData.jobdes;
+
+                  var City= document.createElement("div");
+                  City.classList.add("City");
+                  City.innerHTML = "City/County:" + childData.City;
+
+
+
+
+                  var JobType = document.createElement("div");
+                  JobType.classList.add("JobType");
+                  JobType.innerHTML = "Job Type:" + childData.jobtype;
+
+                  var Salary = document.createElement("div");
+                  Salary.classList.add("Salary");
+                  Salary.innerHTML = "Salary:" + childData.salary;
+
+                  var Experience = document.createElement("div");
+                  Experience.classList.add("Experience");
+                  Experience.innerHTML = "Experience:" + childData.experience;
+
+                  var Licence = document.createElement("div");
+                  Licence.classList.add("Licence");
+                  Licence.innerHTML = "Licence:" + childData.lic;
+
+                  var Education = document.createElement("div");
+                  Education.classList.add("Education");
+                  Education.innerHTML = "Education Level:" + childData.edulevel;
+
+                  var Languages = document.createElement("div");
+                  Languages.classList.add("Languages");
+                  Languages.innerHTML = "Additional Languages:" + childData.Languages;
+
+                  var JobID=document.createElement("div");
+                  JobID.classList.add("JobID");
+                  JobID.innerHTML= "JobID:"+jobid;
+
+                  var App=document.createElement("button");
+                  App.setAttribute("id",num);
+                  console.log(App);
+                  App.classList.add("App");
+                  alert("You applied for"+childData.jobtitle+"at"+childData.compname);
+                  App.onclick= function(){
+                      Apply(App.id,UID,childData.jobtitle, childData.employer,childData.compname);
+                  };
+                  App.innerText= "Apply  Now";
+
+
+
+
+
+
+                  card.appendChild( fakeimg);
+                  card.appendChild( nameTitle);
+                  card.appendChild( City);
+                  card.appendChild( JobType);
+                  card.appendChild( Salary);
+                  card.appendChild( Experience);
+                  card.appendChild( Licence);
+                  card.appendChild(  Education);
+                  card.appendChild( Languages);
+                  card.appendChild(App);
+                  card.appendChild(JobID);
+
+                  console.log(num);
+                  row.appendChild(card);
+                  num=num+1;
+
+              });
+          }, function(error) {
+              console.error(error);
+          });
+
+
+
+
+
+
+      }
+
+
+
+  </script>
+
+  <script>
+
+      window.addEventListener('load', function() {
+          showContent2();
+      });
+
+  </script>
+  <script>
+  function signout() {
+  firebase.auth().signOut().then(function () {
+  console.log('Signed Out');
+  window.location.href = "landing.html";
+  }, function (error) {
+  console.error('Sign Out Error', error);
+  });
+  }
+  </script>
+  <script src="Apply.js"></script>
+
+  <!--<script src="Student.js"></script>-->
+</body>
+</html>

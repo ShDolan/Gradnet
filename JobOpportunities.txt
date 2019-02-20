@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> -->
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="Student.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+  <ul class="topnav">
+    <li><a href="StudentPage.html">My Profile</a></li>
+    <li><a href="Applications.html">My Applications</a></li>
+    <li><a class="active" href="#">Job Opportunities</a></li>
+    <li class="dropdown">
+      <a class="dropbtn">Employers</a>
+      <div class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div
+    </li>
+    <li  style="float:right">
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+      </div>
+    </li>
+    <button style = "visibility:visible" id = "logoutbtn" class = "logout">Log Out</button>
+  </ul>
+
+
+  <!--JOBS-->
+
+  <div class="row">
+      <div class="card">
+        <h5 id="jobData0">Company Name</h5>
+        <h5 id="jobData1"> Job Title</h5>
+        <div class="fakeimg"><p>Image</p></div>
+        <p id="tester"></p>
+        <table id="table1">
+              <tr><div id="jobData"></div></tr> <!--NAME-->
+            <tr>
+              <td><div id="nameTitle">Description:</div></td>
+              <td><div id="jobData2"></div></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><div id="jobData3"></div></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><div id="jobData5"></div></td>
+            </tr>
+        </table>
+        <button>Apply Now</button>
+    </div>
+</div>
+<div class="card">
+  <h5>Company Name, Job Title</h5>
+  <div class="fakeimg"><p>Image</p></div>
+  <p id="tester"></p>
+  <table id="table1">
+        <tr><div id="nameTitle2"></div></tr> <!--NAME-->
+      <tr>
+        <td><div id="nameTitle">Description:</div></td>
+        <td><div id="nameTitle0"></div></td>
+      </tr>
+      <tr>
+          <td>E-mail</td>
+          <td><div id="nameTitle1"></div></td>
+      </tr>
+      <tr>
+          <td>Phone:</td>
+          <td><div id="nameTitle3"></div></td>
+      </tr>
+  </table>
+  <button>Apply Now</button>
+</div>
+<div id="AddNew"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>-->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDCclkiizSuoVinrDWVU7V6cOUOKGu0Wtc",
+      authDomain: "cs353c-project.firebaseapp.com",
+      databaseURL: "https://cs353c-project.firebaseio.com",
+      projectId: "cs353c-project",
+      storageBucket: "cs353c-project.appspot.com",
+      messagingSenderId: "991305201932"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="JobOpportunities.js"></script>
+  <!--<script src="Student.js"></script>-->
+</body>
+</html>

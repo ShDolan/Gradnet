@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.
+</style>
+<link rel="Stylesheet" href="Style.css"/>
+</head>
+<body>
+<body>
+	<div class ="top">
+		<div class ="Login">
+			<button onclick="myFunction()" class="Loginbtn" title="accounts">Login</button>
+			<div id="myDropdown" class="dropdown"><ul>
+				<li><a href="#" class="Studentlogin">Student</a></li>
+				<li><a href="#" class="Employerlogin">Employer</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+     document.getElementById("myDropdown").classList.toggle("show");
+	 console.log("a");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.Loginbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

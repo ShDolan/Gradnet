@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Employer Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Laima.css">
+    <link rel="stylesheet" href="style_1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="Student.js"></script>
+    <script src="/__/firebase/4.12.0/firebase-app.js"></script>
+    <script src="/__/firebase/4.12.0/firebase-auth.js"></script>
+    <script src="/__/firebase/4.12.0/firebase-database.js"></script>
+    <script src="/__/firebase/4.12.0/firebase-messaging.js"></script>
+    <script src="/__/firebase/4.12.0/firebase-functions.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <script src="select.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>GradNet</h2>
+        <select id="custom-select">
+                <option value="level">Select level:</option>
+                <option value="level">Level</option>
+                <option value="Level 7">Level 7</option>
+                <option value="Undergraduate in progress">Undergraduate Level 8 in progress</option>
+                <option value="Undergraduate complete">UndergraduateLevel 8 complete</option>
+                <option value="Higher Diploma">Higher Diploma</option>
+                <option value="Masters">Masters</option>
+                <option value="PhD">PhD</option>
+              </select>
+        <select id="custom-select">
+              <option value="degree">Select Degree:</option>
+              <option value="Accounting">Accounting</option>
+              <option value="Anthropology">Anthropology</option>
+              <option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+              <option value="Agriculture">Agricultural Science</option>
+              <option value="Architectural Science">Architecture</option>
+              <option value="Biology">Biology</option>
+              <option value="Biotechnology">Biotechnology</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Communications">Communications</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Construction">Construction</option>
+              <option value="Customer Service Management">Customer Service Management</option>
+              <option value="Education">Education</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Environmental Studies">Environmental Studies</option>
+              <option value="English">English</option>
+              <option value="Finance">Finance</option>
+              <option value="French">French</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Human Resoure Management">Human Resoure Management</option>
+              <option value="German">German</option>
+              <option value="IT">IT</option>
+              <option value="Legal">Legal</option>
+              <option value="Linguistics">Linguistics</option>
+              <option value="Manufacturing Engineering ">Manufacture Engineering</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Operations/Logistics">Operations/Logistics</option>
+              <option value="Physics">Physics</option>
+              <option value="Physics and Mathemathics">Physics and Mathemathics</option>
+              <option value="Project Management">Project Management </option>
+              <option value="Science">Science</option>
+              <option value="Sociology">Sociology</option>
+              <option value="Social Work">Social Work</option>
+              <option value="Sports Science">Sports Science</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Web Development">Web Development</option>
+              </select>
+        <select id="custom-select">
+              <option value="postgraduate">Select Postgraduate:</option>
+              <option value="Accounting">Accounting</option>
+              <option value="Anthropology">Anthropology</option>
+              <option value="Aeronautical/Aerospace">Aeronautical/Aerospace</option>
+              <option value="Agriculture">Agricultural Science</option>
+              <option value="Architectural Science">Architecture</option>
+              <option value="Biology">Biology</option>
+              <option value="Biotechnology">Biotechnology</option>
+              <option value="Chemistry">Chemistry</option>
+              <option value="Communications">Communications</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Construction">Construction</option>
+              <option value="Customer Service Management">Customer Service Management</option>
+              <option value="Education">Education</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Environmental Studies">Environmental Studies</option>
+              <option value="English">English</option>
+              <option value="Finance">Finance</option>
+              <option value="French">French</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Hospitality">Hospitality</option>
+              <option value="Human Resoure Management">Human Resoure Management</option>
+              <option value="German">German</option>
+              <option value="IT">IT</option>
+              <option value="Legal">Legal</option>
+              <option value="Linguistics">Linguistics</option>
+              <option value="Manufacturing Engineering ">Manufacture Engineering</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Operations/Logistics">Operations/Logistics</option>
+              <option value="Physics">Physics</option>
+              <option value="Physics and Mathemathics">Physics and Mathemathics</option>
+              <option value="Project Management">Project Management </option>
+              <option value="Science">Science</option>
+              <option value="Sociology">Sociology</option>
+              <option value="Social Work">Social Work</option>
+              <option value="Sports Science">Sports Science</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Web Development">Web Development</option>
+              </select>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#menu1">Mail</a></li>
+        <li><a href="#menu2">Jobs</a></li>
+        <li><a href="#menu3">Candidates</a></li>
+    </ul>
+
+    <div class="tab-content" contenteditable="true">
+        <div id="home" class="tab-pane fade in active">
+            <div class="grid-container1">
+                <div class="w3-container">
+                    <div class="image-upload">
+                        <label for="file-input" action="/action_page.php">
+
+                            <img id="blah" src="http://goo.gl/pB9rpQ"/>
+                          </label>
+
+                            <input id="file-input" type="file" accept="image/*" onchange="readURL(this);" align="center">
+                            <h4 align="center" contenteditable="true"> Company Name Insert here.</h4>
+
+                    </div>
+                  </div>
+                </div>
+
+                    <div class="grid-container1">
+
+                        <p contenteditable="true">SkyWay Capital Company greets you! We are happy to announce about our opening within the framework of close and fruitful cooperation with the SkyWay group of Companies. Our main task is to support and develop the SKYWAY project,
+                            to successfully bring the innovative transport system to the world market.</p>
+                    </div>
+                    <div class="grid-container1">
+
+                        <h4>Company Review</h4>
+
+
+
+                            <span class="heading">User Rating</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <p>4.1 average based on 254 reviews.</p>
+
+                            <div class="row">
+                                <div class="side">
+                                    <div>5 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-5"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>150</div>
+                                </div>
+                                <div class="side">
+                                    <div>4 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-4"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>63</div>
+                                </div>
+                                <div class="side">
+                                    <div>3 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-3"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>15</div>
+                                </div>
+                                <div class="side">
+                                    <div>2 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-2"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>6</div>
+                                </div>
+                                <div class="side">
+                                    <div>1 star</div>
+                                </div>
+                                <div class="middle">
+                                    <div class="bar-container">
+                                        <div class="bar-1"></div>
+                                    </div>
+                                </div>
+                                <div class="side right">
+                                    <div>20</div>
+                                </div>
+                            </div>
+                            <br>
+                            <form action="/html/tags/html_form_tags_action.cfm" method="post">
+                                <textarea name="coments" id="coments" style="font-family:sans-serif;font-size:1.2e;">
+                        Put your review here!
+                            </textarea>
+                                <input type="submit" value="Submit">
+                            </form>
+                            <br/>
+                    </div>
+
+                </div>
+            </div>
+          
+            <div id="menu1" class="tab-pane fade">
+                <h3>You Got Mail!</h3>
+                <table id="bodytable" class="table" width="500" style="border:1px solid #333" cellpadding="20" cellspacing="0" height="100%" width="100%">
+                    <tr>
+                        <td align="center" valign="top"></td>
+                    </tr>
+                    <Tr>
+                        <td align="center" valign="top">
+                            <table id="emailConatiner" align="center" width="600" border="0" cellspacing="0" cellpadding="20" style="border:1px solid #ccc;">
+                                <tr>
+                                    this is where header content goes.
+                                    <td>data info</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table border="0" cellpadding="20" cellspacing="20" width="100%" id="emailBody">
+                                <tr>
+                                    <td align="center" valign="top">
+                                        This is where my body content goes.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top">
+                            <table border="0" cellpadding="20" cellspacing="0" width="100%" id="emailFooter">
+                                <tr>
+                                    <td align="center" valign="top">
+                                        This is where my footer content goes.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div id="menu2" class="tab-pane fade">
+                <h1>Post a Job</h1>
+                <div class="grid-container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Company Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Company Name..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Job Title</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="lname" name="lastname" placeholder="Job Title..">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="subject">Job Description</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="country">City or County</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="country" name="country">
+          <option value="dublin">Dublin</option>
+          <option value="kildare">Kildare</option>
+          <option value="meath">Meath</option>
+        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Job Type (optional)</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Salary (optional) €</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="24k a year...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Experience</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Example:Accounting">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Licence (optional)</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Example: Driver Licence">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Education level (optional)</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="Level">
+                                  <option value="level">Level</option>
+                                  <option value="Level 7">Level 7</option>
+                                  <option value="Undergraduate in progress">Undergraduate Level 8 in progress</option>
+                                  <option value="Undergraduate complete">UndergraduateLevel 8 complete</option>
+                                  <option value="Higher Diploma">Higher Diploma</option>
+                                  <option value="Masters">Masters</option>
+                                  <option value="PhD">PhD</option>
+                                </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Additional language required (optional)</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="fname" name="firstname" placeholder="Example: German">
+                    </div>
+                </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div id="menu3" class="tab-pane fade">
+            <h1>Interviews</h1>
+        </div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $(".nav-tabs a").click(function() {
+                $(this).tab('show');
+            });
+            $('.nav-tabs a').on('shown.bs.tab', function(event) {
+                var x = $(event.target).text(); // active tab
+                var y = $(event.relatedTarget).text(); // previous tab
+                $(".act span").text(x);
+                $(".prev span").text(y);
+            });
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(200)
+                        .height(auto);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDCclkiizSuoVinrDWVU7V6cOUOKGu0Wtc",
+            authDomain: "cs353c-project.firebaseapp.com",
+            databaseURL: "https://cs353c-project.firebaseio.com",
+            projectId: "cs353c-project",
+            storageBucket: "cs353c-project.appspot.com",
+            messagingSenderId: "991305201932"
+        };
+        firebase.initializeApp(config);
+    </script>
+</body>
+
+</html>

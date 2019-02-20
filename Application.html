@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> -->
+  <meta charset="utf-8"/>
+
+
+
+
+
+  <link rel="stylesheet" href="Student.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="header">
+    <h2>GradNet</h2>
+  </div>
+
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a  href="Studentpage.html">My Profile</a></li>
+  <li><a class="active" href="#">My Applications</a></li>
+  <li><a href="JobOpportunities.html">Job Opportunities</a></li>
+  <li class="dropdown">
+    <a class="dropbtn">Employers</a>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div
+  </li>
+  <button style = "visibility:visible" id = "logoutbtn" onclick="signout()" class = "logout">Log Out</button>
+  <li  style="float:right">
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </li>
+</ul>
+<div class="row">
+  <div id="row" class="allcolumn">
+
+
+</div>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD4J4mmvmV5L34gmX9BL09ZMRHKD25D13w",
+        authDomain: "project2-84c6e.firebaseapp.com",
+        databaseURL: "https://project2-84c6e.firebaseio.com",
+        projectId: "project2-84c6e",
+        storageBucket: "project2-84c6e.appspot.com",
+        messagingSenderId: "697844001483"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    function showContent3(){
+
+
+        var query = firebase.database().ref("Applications").orderByKey();
+        var query2=firebase.database().ref("Jobs");
+        query.on("value", function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                var key = childSnapshot.key;
+                var childData = childSnapshot.val();
+                if(childData.Applicant===localStorage.getItem("USERID")){
+                    var card = document.createElement("div");
+                    card.classList.add("card");
+
+                    var Job=document.createElement("div");
+                    Job.classList.add("Job");
+                    console.log(childData.Job);
+
+
+
+                    var Employer=document.createElement("div");
+                    Employer.classList.add("Employer");
+                  getData("Jobs",childData.Job, function (d) {
+                      console.log("***********",d);
+                      console.log(d);
+
+                      console.log(d.jobtitle);
+                      console.log(d.compname);
+
+                      Job.innerHTML= "Job Title: "+ d.jobtitle;
+                      Employer.innerHTML= "Employer: "+d.compname;
+                  });
+
+                    var Status=document.createElement("div");
+                    Status.classList.add("Status");
+                    Status.innerHTML= "Status:"+childData.Status;
+
+                    var Interview=document.createElement("div");
+                    Interview.classList.add("Interview");
+                    Interview.innerHTML= "Interview Date:"+childData.InterView;
+
+                    card.appendChild(Job);
+                    card.appendChild(Employer);
+                    card.appendChild(Status);
+                    card.appendChild(Interview);
+
+                    row.appendChild(card);
+                    console.log( query2.child(childData.Job).child("jobtitle"));
+                }
+
+            });
+        });
+    }
+
+
+
+    function getData(dataType, dataID,callback){
+        var data = {};
+        var dataRef = firebase.database().ref("/" + dataType + "/" + dataID );
+        dataRef.on('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                data[childSnapshot.key] = childSnapshot.val();
+            });
+            callback(data);
+        });
+
+        console.log(data);
+        return data;
+    }
+
+
+    function signout() {
+        firebase.auth().signOut().then(function () {
+            console.log('Signed Out');
+            window.location.href = "landing.html";
+        }, function (error) {
+            console.error('Sign Out Error', error);
+        });
+    }
+
+</script>
+
+
+
+<script>
+
+    window.addEventListener('load', function() {
+        showContent3();
+    });
+
+</script>
+
+
+</body>
+</html>

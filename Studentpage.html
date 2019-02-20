@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="header">
+        <h2>GradNet</h2>
+    </div>
+
+
+
+
+
+</head>
+<link rel="stylesheet" href="StudentStlye.css">
+<body>
+<ul class="topnav">
+    <li><a class="active" href="#">My Profile</a></li>
+    <li><a href="Application.html" onclick="">My Applications</a></li>
+    <li><a href="JobOpportunities.html">Job Opportunities</a></li>
+    <li class="dropdown">
+        <a class="dropbtn">Employers</a>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div
+    </li>
+    <button style = "visibility:visible" id = "logoutbtn" onclick="signout()" class = "logout">Log Out</button>
+    <li  style="float:right">
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </li>
+
+</ul>
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+
+            <h5>My Profile</h5>
+            <div id="item1"></div>
+            <div id="item2"></div>
+            <div id="item3"></div>
+            <div id="item4"></div>
+            <div id="item5"></div>
+            <div ><p id="item6"></p></div>
+
+
+
+
+
+            <p id="tester"></p>
+            <div >
+                <div id="nameTitle"></div>
+                <div id="firstName"></div>
+            </div>
+            <div id="courseName">
+                <form action="">Course:
+                    <select id="course">
+                        <option value="Accounting">Accounting</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Primary Teaching">Primary Teaching</option>
+                    </select>
+                    <br><br>
+                </form>
+            </div>
+
+            <button onclick="makeEditable()">Edit Profile</button>
+            <button id="saveBtn" style="display:none" onclick="saveChanges()">Save Changes</button>
+        </div>
+
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h3>Photos</h3>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+            <div class="fakeimg"><p>Image</p></div>
+        </div>
+        <div class="card">
+            <h3 id="Contact">Contact</h3>
+            <p>.....</p>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-functions.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD4J4mmvmV5L34gmX9BL09ZMRHKD25D13w",
+        authDomain: "project2-84c6e.firebaseapp.com",
+        databaseURL: "https://project2-84c6e.firebaseio.com",
+        projectId: "project2-84c6e",
+        storageBucket: "project2-84c6e.appspot.com",
+        messagingSenderId: "697844001483"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+
+<script>
+
+
+
+       // var user1;
+        firebase.auth().onAuthStateChanged(function(user){
+            user = firebase.auth().currentUser.uid;
+            console.log(user);
+           // user1=user;
+            if (user) {
+                //User is signed in.
+                displayStudent(user);
+               localStorage.setItem("USERID",user);
+
+            } else {
+                console.log("SOMETHING'S WRONG!!!!!!!!!!!!");
+            }
+
+        });
+
+function displayStudent(user){
+    var query=firebase.database().ref("users");
+    console.log(query);
+    console.log(user);
+    query.once("value")
+        .then(function(snapshot){
+            console.log(user);
+
+            var name = snapshot.child(user).child("fname").val();
+            console.log(name);
+            var college= snapshot.child(user).child("college").val();
+            console.log(college);
+            var deg = snapshot.child(user).child("degree").val();
+            var level = snapshot.child(user).child("level").val();
+            var postdoc = snapshot.child(user).child("postdoc").val();
+            var hobbies =snapshot.child(user).child("Hobbies").val();
+            var blurb =snapshot.child(user).child("Blurb").val();
+            var stemail = snapshot.child(user).child("email").val();
+            stemail = stemail.replace(",", ".");
+            stemail = stemail.replace("(", "@");
+
+
+            document.getElementById("item1").innerHTML = "Name:" + name;
+            document.getElementById("item2").innerHTML = "College:" + college;
+            document.getElementById("item3").innerHTML = "Level:" + level;
+            document.getElementById("item4").innerHTML = "Degree:" + deg;
+            document.getElementById("item5").innerHTML = "Post Graduate:" + postdoc;
+            document.getElementById("item6").innerHTML = blurb;
+            document.createElement("item7").innerHTML = "Hobbies:" + hobbies;
+
+            document.getElementById("Contact").innerHTML = "Contact:" + stemail;
+
+        });
+
+
+
+    }
+
+       function signout() {
+           firebase.auth().signOut().then(function () {
+               console.log('Signed Out');
+               window.location.href = "landing.html";
+           }, function (error) {
+               console.error('Sign Out Error', error);
+           });
+       }
+
+
+
+</script>
+
+<!--
+<script src="Student.js"></script>-->
+
+<script src="UID.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+.employer-sign-up-content{
+	text-align: center;
+    vertical-align: middle;
+	 position: relative;
+    background-color: #fefefe;
+    margin:  5% auto 15% auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.employer-sign-up {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+
+.employer-email, .employer-psw,.employer-psw-repeat{
+  float: center;
+  width: 40%;
+  border: 3px solid #000000;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+
+.employer-Cancel, .employer-Next{
+  float: left;
+  width: 50%;
+}
+.employer-Cancel{
+   padding: 20px 20px;
+    background-color: #f44336;
+}
+.employer-Cancel:hover {background-color: #43000D}
+.employer-Next{
+   padding: 20px 20px;
+    background-color: #000000;
+	color:#FFFFFF;
+}
+.employer-Next:hover {background-color: #808080}
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}

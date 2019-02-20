@@ -1,0 +1,236 @@
+.grid-container {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    width: 50%;
+    height: auto;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  display: inline-block;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.custom-select{
+  background-color: DodgerBlue;
+}
+/*style the arrow inside the select element:*/
+.custom-select:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.grid-container>div {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 30px;
+    justify-content: space-between;
+    overflow: auto;
+    width: 100%;
+    height: auto;
+}
+
+.grid-container1 {
+    display: grid;
+    grid-template: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+}
+
+.grid-container1>div {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 10px;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    border: .3px solid black;
+}
+
+h3 {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 60%;
+    width: 80%;
+}
+
+
+#coments {
+    border: none;
+    padding: 10px;
+    font: 12px sans-serif;
+    width: 400px;
+    height: auto;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px olivedrad;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: yellowgreen;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7bac10;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: 300px;
+}
+
+.heading {
+    font-size: 20px;
+    text-align: center 10px;
+}
+
+.fa {
+    font-size: 20px;
+}
+
+.checked {
+    color: gold;
+}
+
+/* Three column layout */
+
+.side {
+    float: left;
+    width: 15%;
+    margin-top: 5px;
+}
+
+.middle {
+    margin-top: 5px;
+    float: left;
+    width: 60%;
+}
+
+/* Place text to the right */
+
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+
+.bar-5 {
+    width: 60%;
+    height: 12px;
+    background-color: #4CAF50;
+}
+
+.bar-4 {
+    width: 30%;
+    height: 12px;
+    background-color: #2196F3;
+}
+
+.bar-3 {
+    width: 10%;
+    height: 12px;
+    background-color: #00bcd4;
+}
+
+.bar-2 {
+    width: 4%;
+    height: 12px;
+    background-color: #ff9800;
+}
+
+.bar-1 {
+    width: 15%;
+    height: 12px;
+    background-color: #f44336;
+}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+
+@media (max-width: 200px) {
+    .side,
+    .middle {
+        width: 80%;
+    }
+    .right {
+        display: none;
+    }
+}
